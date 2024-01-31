@@ -1,0 +1,95 @@
+Write a Program to delete the second last element from the list. If deletion of second last element is not possible, print "Deletion of second last element is not possible", Otherwise print the list after deleting the second last element.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+2
+3
+4
+-1
+Sample Output 0
+
+Before deleting:
+1 2 3 4
+After deleting:
+1 2 4
+Sample Input 1
+
+23
+34
+55
+12
+66
+45
+33
+-1
+Sample Output 1
+
+Before deleting:
+23 34 55 12 66 45 33
+After deleting:
+23 34 55 12 66 33
+
+
+Code....
+
+
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class LinkedList():
+    def __init__(self):
+        self.head=self.tail=None
+    def create(self,x):
+        n=Node(x)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.next=n
+            self.tail=n
+    def delete(self,pos):
+        c1=0
+        temp=self.head
+        while temp!=None:
+            if c1!=pos:
+                temp=temp.next
+                c1=c1+1
+            else:
+                h=temp.next
+                temp.next=h.next
+                break
+    def show(self):
+        temp=self.head
+        while temp!=None:
+            print(temp.data,end=" ")
+            temp=temp.next
+            
+l=LinkedList()
+c=0
+while True:
+    x=int(input())
+    if x>=0:
+        l.create(x)
+        c=c+1
+    else:
+        break
+pos=c-3
+print("Before deleting:")
+l.show()
+l.delete(pos)
+print("\nAfter deleting:")
+l.show()
