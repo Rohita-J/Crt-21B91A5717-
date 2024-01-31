@@ -1,0 +1,76 @@
+Write a Program to find the maximum number in a list.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+5
+2
+4
+7
+3
+-1
+Sample Output 0
+
+7
+Sample Input 1
+
+6
+3
+8
+2
+9
+1
+6
+10
+-1
+Sample Output 1
+
+10
+
+
+Code.....
+
+
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Linkedlist:
+    def __init__(self):
+        self.head=self.tail=None
+    def create(self,data):
+        n=Node(data)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.next=n
+            self.tail=n
+    def max_element(self):
+        max=self.head.data
+        temp=self.head.next
+        while temp!=None:
+            if temp.data>max:
+                max=temp.data
+            temp=temp.next
+        print(max)   
+s1=Linkedlist()
+while True:
+    x=int(input())
+    if x>=0:
+        s1.create(x)
+    else:
+        break
+s1.max_element()
