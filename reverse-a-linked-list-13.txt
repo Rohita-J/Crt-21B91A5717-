@@ -1,0 +1,95 @@
+Write a program to print the given list in reverse order. Get the input continuously from the user, until the user enters a negative value.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+4
+2
+3
+1
+6
+-1
+Sample Output 0
+
+Original Order:
+4 2 3 1 6
+Reverse Order:
+6 1 3 2 4
+Sample Input 1
+
+12
+32
+45
+28
+-1
+Sample Output 1
+
+Original Order:
+12 32 45 28
+Reverse Order:
+28 45 32 12
+Sample Input 2
+
+-1
+Sample Output 2
+
+No value has been inserted
+
+
+Code.....
+
+
+class Node:
+    def __init__(self,val):
+        self.val=val
+        self.left=None
+        self.right=None
+class Doubly:
+    def __init__(self):
+        self.head=self.tail=None
+    def create(self,x):
+        n=Node(x)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.right=n
+            n.left=self.tail
+            self.tail=n
+    def show1(self):
+        if self.head==None:
+            print("No value has been inserted")
+            return
+        print("Original Order:")
+        temp=self.head
+        while temp!=None:
+            print(temp.val,end=" ")
+            temp=temp.right
+        print()
+    def show2(self):
+        if self.head==None:
+            return
+        print("Reverse Order:")
+        temp=self.tail
+        while temp!=None:
+            print(temp.val,end=" ")
+            temp=temp.left
+d=Doubly()
+while True:
+    x=int(input())
+    if x>0:
+        d.create(x)
+    else:
+        break
+d.show1()
+d.show2()
