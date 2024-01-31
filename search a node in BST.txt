@@ -1,0 +1,118 @@
+Code....
+
+
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=Node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=Node(x)
+            else:
+                self.right.insert(x)
+    def show(self):
+        if self.left:
+            self.left.show()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.show()
+    def search(self,x):
+        if self.data==x:
+            print("Node is found")
+            return
+        if x<self.data:
+            if self.left!=None:
+                self.left.search(x)
+            else:
+                print("Node is not present")
+        else:
+            if self.right!=None:
+                self.right.search(x)
+            else:
+                print("Node is not present")
+root=Node(40)
+while True:
+    print()
+    print("1.Insert\n2.Show\n3.Search\n4.Exit")
+    ch=int(input("Enter your choice"))
+    if ch==1:
+        x=int(input("Enter an element"))
+        root.insert(x)
+    elif ch==2:
+        root.show()
+    elif ch==3:
+        x=int(input("Enter a search element"))
+        root.search(x)
+    elif ch==4:
+        break
+    else:
+        print("Invalid choice")
+
+
+Output:
+
+
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice1
+Enter an element30
+
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice1
+Enter an element50
+
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice1
+Enter an element25
+
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice1
+Enter an element35
+
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice1
+Enter an element55
+
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice2
+25 30 35 40 50 55 
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice3
+Enter a search element35
+Node is found
+
+1.Insert
+2.Show
+3.Search
+4.Exit
+Enter your choice4
