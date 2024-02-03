@@ -1,0 +1,120 @@
+Code.......
+
+
+
+
+def addNode(v):
+    if v in graph:
+        print(v,"is already available")
+    else:
+        graph[v]=[]
+def addEdge(node1,node2):
+    if node1 not in graph:
+        print(node1,"is not present in graph")
+    elif node2 not in graph:
+        print(node2,"is not present in graph")
+    else:
+        graph[node1].append(node2)
+        graph[node2].append(node1)
+def show():
+    for x in graph:
+        print(x,":",graph[x])
+graph={}
+while True:
+    print()
+    print("1.Add Node\n2.Add Edge\n3.Print List\n4.Exit")
+    ch=int(input("Enter your choice:"))
+    if ch==1:
+        v=input("Enter node")
+        addNode(v)
+    elif ch==2:
+        node1=input("Enter node1")
+        node2=input("Enter node2")
+        addEdge(node1,node2)
+    elif ch==3:
+        show()
+    elif ch==4:
+        break
+    else:
+        print("Invalid choice")
+		
+
+output.....
+
+
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:1
+Enter nodeA
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:1
+Enter nodeB
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:1
+Enter nodeC
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:1
+Enter nodeD
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:2
+Enter node1A
+Enter node2B
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:2
+Enter node1B
+Enter node2C
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:2
+Enter node1C
+Enter node2D
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:2
+Enter node1D
+Enter node2A
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:3
+A : ['B', 'D']
+B : ['A', 'C']
+C : ['B', 'D']
+D : ['C', 'A']
+
+1.Add Node
+2.Add Edge
+3.Print List
+4.Exit
+Enter your choice:4	
