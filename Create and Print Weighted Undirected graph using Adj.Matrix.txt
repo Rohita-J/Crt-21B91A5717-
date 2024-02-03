@@ -1,0 +1,174 @@
+Code..........
+
+
+
+
+
+def addnode(v):
+    global nodecount
+    if v in nodes:
+        print(v,"is available")
+    else:
+        nodes.append(v)
+        nodecount=nodecount+1
+        for x in graph:
+            x.append(0)
+        temp=[]
+        for i in range(nodecount):
+            temp.append(0)
+        graph.append(temp)
+def addEdge(node1,node2,w):
+    if node1 not in nodes:
+        print("node1 not available")
+    elif node2 not in nodes:
+        print("node2 not available")
+    else:
+        i=nodes.index(node1)
+        j=nodes.index(node2)
+        graph[i][j]=w
+        graph[j][i]=w
+
+def show():
+    for i in range(nodecount):
+        for j in range(nodecount):
+            print(graph[i][j],end=" ")
+        print()
+
+nodecount=0
+nodes=[]
+graph=[]
+while True:
+    print()
+    print("1.add node\n2.add edge\n3.show\n4.Exit")
+    ch=int(input("Choice:"))
+    if ch==1:
+        x=input("Node: ")
+        addnode(x)
+    elif ch==2:
+        w=int(input("weight: "))
+        node1=input("Node1: ")
+        node2=input("Node2: ")
+        addEdge(node1,node2,w)
+    elif ch==3:
+        show()
+    elif ch==4:
+        exit
+    else:
+        print("invalid choice")
+
+
+
+
+Output........
+
+
+
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:1
+Node: A
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:1
+Node: B
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:1
+Node: C
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:1
+Node: D
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:1
+Node: E
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:2
+weight: 10
+Node1: A
+Node2: B
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:2
+weight: 3
+Node1: B
+Node2: E
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:2
+weight: 2
+Node1: E
+Node2: D
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:2
+weight: 1
+Node1: C
+Node2: D
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:2
+weight: 5
+Node1: A
+Node2: C
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:2
+weight: 4
+Node1: A
+Node2: D
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:2
+weight: 7
+Node1: B
+Node2: D
+
+1.add node
+2.add edge
+3.show
+4.Exit
+Choice:3
+0 10 5 4 0 
+10 0 0 7 3 
+5 0 0 1 0 
+4 7 1 0 2 
+0 3 0 2 0 
